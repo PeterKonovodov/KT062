@@ -10,7 +10,7 @@ fun main() {
 
     val attachment: Attachment = AttachmentLink(
         attachmentContent = Link(
-            url = "www.netology.ru", title = "Курсы выживания без интернета", "", "",
+            url = "www.netology.ru", title = "-=Курсы выживания без интернета=-", "", "",
             product = LinkProduct(
                 LinkProduct.Price(100500, LinkProduct.Currency(1, "RUP (российский песо)"), text = "цена"),
             )
@@ -34,6 +34,7 @@ fun postPrint(post: Post) {
     for ((index, att) in post.attachments?.withIndex()!!) {
         when (att) {
             is AttachmentLink -> {
+                println(att.attachmentContent.title)
                 println("Идите сюда ${att.attachmentContent.url}")
                 println(
                     "Невероятные скидки! цена всего ${att.attachmentContent.product?.price?.amount} " +
